@@ -44,15 +44,15 @@ export default function Footer() {
                     <div className="flex flex-col gap-4">
                         <h4 className="text-xs font-semibold uppercase tracking-widest text-muted">Get in Touch</h4>
                         <div className="flex flex-col gap-3 text-sm text-white/80">
-                            <a href="mailto:hello@brainscan.bg" className="flex items-center gap-2 hover:text-primary transition-colors">
-                                <Mail size={16} className="text-primary" /> hello@brainscan.bg
+                            <a href="mailto:brainscanacademy@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+                                <Mail size={16} className="text-primary" /> brainscanacademy@gmail.com
                             </a>
-                            <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-primary transition-colors">
-                                <Phone size={16} className="text-primary" /> +1 (234) 567-890
+                            <a href="tel:+917013517725" className="flex items-center gap-2 hover:text-primary transition-colors">
+                                <Phone size={16} className="text-primary" /> +91 7013517725
                             </a>
                             <div className="flex items-start gap-2">
                                 <MapPin size={16} className="text-primary mt-1" />
-                                <span>123 Neural Avenue,<br />Science City, SC 54321</span>
+                                <span>Gooty, Andhra Pradesh, India</span>
                             </div>
                         </div>
                     </div>

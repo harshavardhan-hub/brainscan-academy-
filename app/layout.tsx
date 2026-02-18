@@ -12,6 +12,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "BrainScan Academy",
   description: "Premium neuroscience-based child intelligence and mind training institute.",
+  icons: { icon: 'https://res.cloudinary.com/drit9nkha/image/upload/v1761289377/logo_yax1ym.jpg' },
 };
 
 export default function RootLayout({
