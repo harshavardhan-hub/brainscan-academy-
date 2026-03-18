@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import ContactModal from "@/components/ContactModal";
 
 export default function Navbar() {
     const { scrollY } = useScroll();
@@ -35,8 +36,9 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex items-center gap-2">
-                    <Link href="/" className="text-xl font-bold tracking-tight text-white">
-                        BrainScan <span className="font-light text-primary">Academy</span>
+                    <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
+                        <img src="/logo.png" alt="BrainScan Academy Logo" className="h-8 w-auto object-contain" />
+                        <span>BrainScan <span className="font-light text-primary">Academy</span></span>
                     </Link>
                 </div>
 
@@ -55,9 +57,11 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden md:block">
-                    <Button size="sm" className="rounded-full font-semibold animate-pulse-slow">
-                        Book Consultation
-                    </Button>
+                    <ContactModal>
+                        <Button size="sm" className="rounded-full font-semibold animate-pulse-slow">
+                            Book Consultation
+                        </Button>
+                    </ContactModal>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -80,8 +84,9 @@ export default function Navbar() {
                         className="fixed inset-0 z-[60] flex flex-col bg-background/95 px-6 py-8 backdrop-blur-xl md:hidden"
                     >
                         <div className="flex items-center justify-between border-b border-border pb-6">
-                            <span className="text-xl font-bold tracking-tight text-white">
-                                BrainScan <span className="font-light text-primary">Academy</span>
+                            <span className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
+                                <img src="/logo.png" alt="BrainScan Academy Logo" className="h-8 w-auto object-contain" />
+                                <span>BrainScan <span className="font-light text-primary">Academy</span></span>
                             </span>
                             <button
                                 className="rounded-full p-2 text-white/70 hover:bg-white/10"
@@ -103,9 +108,11 @@ export default function Navbar() {
                                 </Link>
                             ))}
                             <div className="mt-8">
-                                <Button size="lg" className="w-full rounded-full text-lg">
-                                    Book Consultation
-                                </Button>
+                                <ContactModal>
+                                    <Button size="lg" className="w-full rounded-full text-lg">
+                                        Book Consultation
+                                    </Button>
+                                </ContactModal>
                             </div>
                         </div>
                     </motion.div>

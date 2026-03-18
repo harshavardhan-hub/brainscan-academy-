@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import ContactModal from "@/components/ContactModal";
 
 export default function FinalCTA() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -94,12 +95,16 @@ export default function FinalCTA() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="rounded-full px-12 py-8 text-lg font-bold shadow-lg shadow-primary/20">
-                            Book Free Consultation
-                        </Button>
-                        <Button variant="ghost" size="lg" className="rounded-full px-12 py-8 text-lg border-white/20 text-white hover:bg-white/10">
-                            Download Program Guide
-                        </Button>
+                        <ContactModal>
+                            <Button size="lg" className="rounded-full px-12 py-8 text-lg font-bold shadow-lg shadow-primary/20 w-full">
+                                Book Free Consultation
+                            </Button>
+                        </ContactModal>
+                        <ContactModal>
+                            <Button variant="ghost" size="lg" className="rounded-full px-12 py-8 text-lg border-white/20 text-white hover:bg-white/10 w-full">
+                                Download Program Guide
+                            </Button>
+                        </ContactModal>
                     </div>
 
                     <div className="mt-12 flex flex-col md:flex-row gap-6 justify-center text-sm text-muted">
