@@ -29,11 +29,9 @@ export default function ContactModal({ children }: { children: React.ReactNode }
         setStatus("loading");
         
         try {
-            const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_CONTACT_WEBHOOK_URL as string;
-            
             const content = `🎉 **New Consultation / Program Guide Request!** 🎉\n\n**Name:** ${formData.name}\n**Email:** ${formData.email || "Not provided"}\n**Phone:** ${formData.phone}\n**Location:** ${formData.location}\n`;
 
-            const response = await fetch(webhookUrl, {
+            const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ content }),

@@ -22,11 +22,9 @@ export default function ReferAndEarnForm() {
         setStatus("loading");
         
         try {
-            const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_REFERRAL_WEBHOOK_URL as string;
-            
             const content = `🎁 **New Refer & Earn Request!** 🎁\n\n**Referrer Name:** ${formData.referrerName}\n**Referrer Phone:** ${formData.referrerPhone}\n**Referrer Email:** ${formData.referrerEmail || "Not provided"}\n\n**Friend's Name:** ${formData.friendName}\n**Friend's Phone:** ${formData.friendPhone}\n`;
 
-            const response = await fetch(webhookUrl, {
+            const response = await fetch("/api/referral", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ content }),
