@@ -23,7 +23,7 @@ export default function ReferPromo() {
                     
                     <div className="z-10 shrink-0">
                         <Link href="/refer-and-earn">
-                            <button className="bg-white text-primary px-8 py-4 rounded-full font-bold text-sm md:text-base hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] flex items-center gap-3 whitespace-nowrap active:scale-95 group/btn">
+                            <button className="bg-primary text-white px-8 py-4 rounded-full font-bold text-sm md:text-base hover:scale-105 transition-all shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] flex items-center gap-3 whitespace-nowrap active:scale-95 group/btn">
                                 Learn More <ArrowRight size={18} className="transform group-hover/btn:translate-x-1 transition-transform" />
                             </button>
                         </Link>
