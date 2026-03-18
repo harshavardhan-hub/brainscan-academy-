@@ -6,8 +6,10 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import TestimonialsWall from "@/components/TestimonialsWall";
 import FAQSection from "@/components/FAQSection";
 import FinalCTA from "@/components/FinalCTA";
+import ReferPromo from "@/components/ReferPromo";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import StickyUrgencyBar from "@/components/StickyUrgencyBar";
 
 export default function Home() {
   return (
@@ -21,7 +23,9 @@ export default function Home() {
       <TestimonialsWall />
       <FAQSection />
       <FinalCTA />
+      <ReferPromo />
       <Footer />
+      <StickyUrgencyBar />
     </main>
   );
 }

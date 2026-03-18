@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle, Loader2 } from "lucide-react";
 
@@ -13,6 +14,11 @@ export default function ContactModal({ children }: { children: React.ReactNode }
         phone: "",
         location: ""
     });
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,7 +29,7 @@ export default function ContactModal({ children }: { children: React.ReactNode }
         setStatus("loading");
         
         try {
-            const webhookUrl = "https://discord.com/api/webhooks/1483790450992087172/434CXH-0GEoEK4b5uLMQroitu0-oUPUdjZ-DVDQbFAJAKsMtOnBW8MgaqZ5zoBAulZhx";
+            const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_CONTACT_WEBHOOK_URL as string;
             
             const content = `🎉 **New Consultation / Program Guide Request!** 🎉\n\n**Name:** ${formData.name}\n**Email:** ${formData.email || "Not provided"}\n**Phone:** ${formData.phone}\n**Location:** ${formData.location}\n`;
 
@@ -56,8 +62,8 @@ export default function ContactModal({ children }: { children: React.ReactNode }
             </div>
 
             <AnimatePresence>
-                {isOpen && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                {isOpen && mounted && createPortal(
+                    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -105,7 +111,7 @@ export default function ContactModal({ children }: { children: React.ReactNode }
 
                                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                                         <div className="flex flex-col gap-1.5">
-                                            <label htmlFor="name" className="text-sm font-medium text-white/80">Name <span className="text-red-400">*</span></label>
+                                            <label htmlFor="name" className="text-base font-bold text-white text-left block">Name <span className="text-red-400">*</span></label>
                                             <input
                                                 required
                                                 type="text"
@@ -119,7 +125,7 @@ export default function ContactModal({ children }: { children: React.ReactNode }
                                         </div>
 
                                         <div className="flex flex-col gap-1.5">
-                                            <label htmlFor="phone" className="text-sm font-medium text-white/80">Phone Number <span className="text-red-400">*</span></label>
+                                            <label htmlFor="phone" className="text-base font-bold text-white text-left block">Phone Number <span className="text-red-400">*</span></label>
                                             <input
                                                 required
                                                 type="tel"
@@ -133,7 +139,7 @@ export default function ContactModal({ children }: { children: React.ReactNode }
                                         </div>
 
                                         <div className="flex flex-col gap-1.5">
-                                            <label htmlFor="email" className="text-sm font-medium text-white/80">Email <span className="text-white/40 text-xs font-normal">(Optional)</span></label>
+                                            <label htmlFor="email" className="text-base font-bold text-white text-left block">Email <span className="text-white/40 text-sm font-normal">(Optional)</span></label>
                                             <input
                                                 type="email"
                                                 id="email"
@@ -146,7 +152,7 @@ export default function ContactModal({ children }: { children: React.ReactNode }
                                         </div>
 
                                         <div className="flex flex-col gap-1.5">
-                                            <label htmlFor="location" className="text-sm font-medium text-white/80">Location <span className="text-red-400">*</span></label>
+                                            <label htmlFor="location" className="text-base font-bold text-white text-left block">Location <span className="text-red-400">*</span></label>
                                             <input
                                                 required
                                                 type="text"
@@ -175,7 +181,8 @@ export default function ContactModal({ children }: { children: React.ReactNode }
                                 </div>
                             )}
                         </motion.div>
-                    </div>
+                    </div>,
+                    document.body
                 )}
             </AnimatePresence>
         </>
