@@ -55,26 +55,27 @@ export default function ContactModal({ children }: { children: React.ReactNode }
 
     return (
         <>
-            <div onClick={() => setIsOpen(true)} className="inline-block w-full cursor-pointer h-full">
+            <div onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsOpen(true); }} className="inline-block cursor-pointer">
                 {children}
             </div>
 
-            <AnimatePresence>
-                {isOpen && mounted && createPortal(
-                    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={closeModal}
-                            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                        />
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-[#0A0A0A] p-6 sm:p-8 shadow-2xl"
-                        >
+            {mounted && createPortal(
+                <AnimatePresence>
+                    {isOpen && (
+                        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={closeModal}
+                                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                            />
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                                className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#0A0A0A] p-5 sm:p-8 shadow-2xl custom-scrollbar"
+                            >
                             <button
                                 onClick={closeModal}
                                 className="absolute right-4 top-4 rounded-full p-2 text-white/50 transition-colors hover:bg-white/10 hover:text-white"
@@ -179,10 +180,11 @@ export default function ContactModal({ children }: { children: React.ReactNode }
                                 </div>
                             )}
                         </motion.div>
-                    </div>,
-                    document.body
+                    </div>
                 )}
-            </AnimatePresence>
+                </AnimatePresence>,
+                document.body
+            )}
         </>
     );
 }
