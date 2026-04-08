@@ -92,6 +92,8 @@ export default function ProcessTimeline() {
 
                     {/* Left Static Panel (Desktop Only) */}
                     <div className="hidden md:flex w-full md:w-[30vw] flex-col justify-center h-full pr-12 relative z-10">
+                        {/* Endless wall masking sliding cards */}
+                        <div className="absolute inset-y-0 right-0 w-[100vw] bg-background -z-10" />
                         <span className="text-primary text-[13px] font-medium uppercase tracking-[0.15em] mb-4">
                             The Journey
                         </span>

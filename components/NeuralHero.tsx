@@ -52,10 +52,10 @@ const NeuralHero = () => {
                         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                         className="flex flex-col items-center justify-center"
                     >
-                        <span className="text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.2em] uppercase text-white/90 mb-4">
+                        <span className="text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.2em] uppercase text-white/90 mb-4">
                             Every Child Is Born
                         </span>
-                        <span className={`text-6xl md:text-8xl lg:text-9xl ${playfair.className} text-[#c8a96e] drop-shadow-[0_0_30px_rgba(200,169,110,0.3)]`}>
+                        <span className={`text-5xl md:text-7xl lg:text-8xl ${playfair.className} text-[#c8a96e] drop-shadow-[0_0_30px_rgba(200,169,110,0.3)]`}>
                             A Genius.
                         </span>
                     </motion.h1>

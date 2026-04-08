@@ -8,9 +8,8 @@ export default function Footer() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 mb-16">
                     {/* Brand */}
                     <div className="flex flex-col gap-4">
-                        <Link href="/" className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white mb-2">
-                            <img src="/logo.png" alt="BrainScan Academy Logo" className="h-10 w-auto object-contain bg-white/10 rounded-md p-1" />
-                            <span>BrainScan <span className="font-light text-primary">Academy</span></span>
+                        <Link href="/" className="flex h-[64px] items-center gap-2 overflow-hidden mb-2">
+                            <img src="/logo.png" alt="BrainScan Academy Logo" className="h-[64px] w-[500px] md:w-[800px] max-w-none object-contain object-left scale-[1.5] md:scale-[1.7] origin-left" />
                         </Link>
                         <p className="text-sm text-muted">Where science meets potential.</p>
                         <div className="flex gap-4 mt-2">

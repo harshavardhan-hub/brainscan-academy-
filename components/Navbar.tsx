@@ -35,10 +35,9 @@ export default function Navbar() {
                         : "bg-transparent"
                     }`}
             >
-                <div className="flex items-center gap-2">
-                    <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
-                        <img src="/logo.png" alt="BrainScan Academy Logo" className="h-8 w-auto object-contain" />
-                        <span>BrainScan <span className="font-light text-primary">Academy</span></span>
+                <div className="flex h-[64px] items-center gap-2 overflow-hidden">
+                    <Link href="/" className="flex h-full items-center gap-2 text-xl font-bold tracking-tight text-white">
+                        <img src="/logo.png" alt="BrainScan Academy Logo" className="h-[64px] w-[500px] md:w-[800px] max-w-none object-contain object-left scale-[1.5] md:scale-[1.7] origin-left" />
                     </Link>
                 </div>
 
@@ -84,9 +83,8 @@ export default function Navbar() {
                         className="fixed inset-0 z-[60] flex flex-col bg-background/95 px-6 py-8 backdrop-blur-xl md:hidden"
                     >
                         <div className="flex items-center justify-between border-b border-border pb-6">
-                            <span className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
-                                <img src="/logo.png" alt="BrainScan Academy Logo" className="h-8 w-auto object-contain" />
-                                <span>BrainScan <span className="font-light text-primary">Academy</span></span>
+                            <span className="flex h-[64px] flex-1 min-w-0 items-center gap-2 overflow-hidden text-xl font-bold tracking-tight text-white">
+                                <img src="/logo.png" alt="BrainScan Academy Logo" className="h-[64px] w-[500px] max-w-none object-contain object-left scale-[1.5] origin-left" />
                             </span>
                             <button
                                 className="rounded-full p-2 text-white/70 hover:bg-white/10"
