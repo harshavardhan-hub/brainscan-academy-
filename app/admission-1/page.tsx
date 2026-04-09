@@ -4,6 +4,21 @@ import AdmissionForm from "@/components/AdmissionForm";
 
 export const metadata: Metadata = {
   title: "BrainScan Academy – Admission Form for Phonics, Finger Maths and Yoga",
+  description: "Enroll your child in our Phonics Program, Finger Maths for fast calculations, and Yoga for concentration.",
+  openGraph: {
+    title: "BrainScan Academy – Admission Form for Phonics, Finger Maths and Yoga",
+    description: "Enroll your child in our Phonics Program, Finger Maths for fast calculations, and Yoga for concentration.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 600,
+        alt: "BrainScan Academy Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function Admission1Page() {
