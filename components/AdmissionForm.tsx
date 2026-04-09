@@ -137,17 +137,35 @@ export default function AdmissionForm({ formId, title, description, courses }: A
   const sectionTitleClasses = "text-xl font-semibold text-white mt-8 mb-4 border-b border-white/10 pb-2";
 
   return (
-    <div className="mx-auto w-full max-w-4xl rounded-2xl bg-[#0a0a0f]/80 p-6 md:p-8 shadow-2xl backdrop-blur-sm border border-white/10">
+    <>
+      {isSuccess && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-300">
+          <div className="bg-[#0a0a0f] border border-green-500/50 rounded-2xl p-8 max-w-md w-full text-center shadow-[0_0_40px_rgba(34,197,94,0.2)] animate-in zoom-in-95 duration-300">
+            <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/50">
+              <span className="text-4xl text-green-400">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Application Submitted!</h3>
+            <p className="text-green-200 text-lg mb-8">
+              🎉 Form submitted successfully! We will contact you soon.
+            </p>
+            <Button onClick={() => setIsSuccess(false)} className="w-full bg-green-600 hover:bg-green-500 text-white font-bold text-lg py-6 rounded-xl transition-all">
+              Close
+            </Button>
+          </div>
+        </div>
+      )}
+
+      <div className="mx-auto w-full max-w-4xl rounded-2xl bg-[#0a0a0f]/80 p-6 md:p-8 shadow-2xl backdrop-blur-sm border border-white/10">
       <div className="mb-8 text-center">
         <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">{title}</h1>
         {description && <div className="text-gray-300 md:text-lg">{description}</div>}
       </div>
 
-      {isSuccess && (
-        <div className="mb-8 p-4 rounded-lg bg-green-500/20 border border-green-500/50 text-green-200 text-center text-lg font-medium">
-          🎉 Form submitted successfully! We will contact you soon.
-        </div>
-      )}
+
 
       {error && (
         <div className="mb-8 p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-200 text-center font-medium">
@@ -364,5 +382,6 @@ export default function AdmissionForm({ formId, title, description, courses }: A
         </div>
       </form>
     </div>
+    </>
   );
 }
